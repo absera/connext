@@ -83,8 +83,6 @@ An Example Activity Feed:
 
 ## Wireframes
 
-(__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.)
-
 /home - page for viewing your network
 
 ![list create](documentation/network.png)
