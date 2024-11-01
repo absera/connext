@@ -1,0 +1,19 @@
+{
+  "name": "final-project-absera",
+  "version": "1.0.0",
+  "description": "this is my final project for ait fall 2024. connext is a simple web app to manage academic connections in college",
+  "main": "app.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "networking"
+  ],
+  "author": "absera temesgen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

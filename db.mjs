@@ -1,0 +1,141 @@
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+    netid: {
+        type: String,
+        required: true,
+        unique: true,
+        index: true
+    },
+    firstName: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    lastName: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+        trim: true,
+        validate: {
+            validator: (v) => /^[a-zA-Z0-9._%+-]+@nyu.edu$/.test(v), 
+            message: (props) => `${props.value} is not a valid email address!`
+        }
+    },
+    password: {
+        type: String,
+        required: true,
+        minlength: 6 // min length for passwords
+    },
+    classYear: {
+        type: Number,
+        required: true
+    },
+    karma: {
+        type: Number,
+        default: 0
+    },
+    courses: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Course'
+    }]
+});
+
+const User = mongoose.model('User', userSchema);
+
+
+const courseSchema = new mongoose.Schema({
+    creatorId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    courseNumber: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    semester: {
+        type: String,
+        required: true
+    },
+    courseName: {
+        type: String,
+        required: true,
+        trim: true
+    }
+});
+
+const Course = mongoose.model('Course', courseSchema);
+
+
+const enrollmentSchema = new mongoose.Schema({
+    courseNumber: {
+        type: String,
+        required: true
+    },
+    semester: {
+        type: String,
+        required: true
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
+});
+
+enrollmentSchema.index({ courseNumber: 1, semester: 1, userId: 1 }, { unique: true });
+
+const Enrollment = mongoose.model('Enrollment', enrollmentSchema);
+
+
+const messageSchema = new mongoose.Schema({
+    senderId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    receiverId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    value: {
+        type: String,
+        required: true,
+        minlength: 1, // min length for messages
+        maxlength: 500
+    },
+    timeSent: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+const Message = mongoose.model('Message', messageSchema);
+
+
+const activityFeedSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    timeStamp: {
+        type: Date,
+        default: Date.now
+    },
+    type: {
+        type: String,
+        required: true,
+        enum: ['course created', 'new user joined your class']
+    }
+});
+
+const ActivityFeed = mongoose.model('ActivityFeed', activityFeedSchema);
