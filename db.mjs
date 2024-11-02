@@ -1,4 +1,7 @@
-const mongoose = require('mongoose');
+import {mongoose} from 'mongoose'
+import './config.mjs'
+
+mongoose.connect(process.env.DSN)
 
 const userSchema = new mongoose.Schema({
     netid: {

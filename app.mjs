@@ -1,9 +1,42 @@
+import './config.mjs'
 import express from 'express'
+import session from 'express-session';
 import path from 'path'
 import { fileURLToPath } from 'url';
 
+// ROUTES
+import authRouter from './routes/auth.routes.js';
+import coursesRouter from './routes/courses.routes.js';
+import feedRouter from './routes/feed.routes.js';
+import networkRouter from './routes/network.routes.js';
+import userRouter from './routes/user.routes.js';
+import chatRouter from './routes/chat.routes.js';
+
+// INITIALIZATION
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
+// SESSION: TODO: use persistent session storage
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+}));
+
+// ENGINE MIDDLEWARES
+app.set('view engine', 'hbs');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: false }));
+
+// ROUTE MIDDLEWARES
+app.use(authRouter);          // Routes for authentication (register, login)
+app.use(coursesRouter);       // Routes for course-related operations
+app.use(feedRouter);          // Routes for main feed and homepage
+app.use(networkRouter);       // Routes for viewing user networks
+app.use(userRouter);          // Routes for user profiles
+app.use(chatRouter);          // Routes for chat list and messaging 
+
+// START
 app.listen(process.env.PORT || 3000);
