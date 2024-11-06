@@ -1,0 +1,15 @@
+<h1>All Courses</h1>
+
+{{#if allCourses.length}}
+    <ul>
+        {{#each allCourses}}
+            <li>
+                <strong>Course Number:</strong> {{courseNumber}} <br>
+                <strong>Semester:</strong> {{semester}} <br>
+                <strong>Course Name:</strong> {{courseName}}
+            </li><br><br>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>No courses available.</p>
+{{/if}}
