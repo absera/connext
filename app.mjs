@@ -5,12 +5,12 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 
 // ROUTES
-import authRouter from './routes/auth.routes.js';
-import coursesRouter from './routes/courses.routes.js';
-import feedRouter from './routes/feed.routes.js';
-import networkRouter from './routes/network.routes.js';
-import userRouter from './routes/user.routes.js';
-import chatRouter from './routes/chat.routes.js';
+import authRouter from './routes/auth.routes.mjs';
+import coursesRouter from './routes/courses.routes.mjs';
+import feedRouter from './routes/feed.routes.mjs';
+import networkRouter from './routes/network.routes.mjs';
+import userRouter from './routes/user.routes.mjs';
+import chatRouter from './routes/chat.routes.mjs';
 
 // INITIALIZATION
 const app = express();
