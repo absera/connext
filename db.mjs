@@ -1,4 +1,4 @@
-import {mongoose} from 'mongoose'
+import { mongoose } from 'mongoose'
 import './config.mjs'
 
 mongoose.connect(process.env.DSN)
@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         trim: true,
         validate: {
-            validator: (v) => /^[a-zA-Z0-9._%+-]+@nyu.edu$/.test(v), 
+            validator: (v) => /^[a-zA-Z0-9._%+-]+@nyu.edu$/.test(v),
             message: (props) => `${props.value} is not a valid email address!`
         }
     },
@@ -50,14 +50,16 @@ const userSchema = new mongoose.Schema({
     }]
 });
 
-const User = mongoose.model('User', userSchema);
-
 
 const courseSchema = new mongoose.Schema({
+    // TODO below is commented for test purposes, uncomment and remove line below is
+    // creatorId: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'User',
+    //     required: true
+    // },
     creatorId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+        type: String,
     },
     courseNumber: {
         type: String,
@@ -74,8 +76,6 @@ const courseSchema = new mongoose.Schema({
         trim: true
     }
 });
-
-const Course = mongoose.model('Course', courseSchema);
 
 
 const enrollmentSchema = new mongoose.Schema({
@@ -95,8 +95,6 @@ const enrollmentSchema = new mongoose.Schema({
 });
 
 enrollmentSchema.index({ courseNumber: 1, semester: 1, userId: 1 }, { unique: true });
-
-const Enrollment = mongoose.model('Enrollment', enrollmentSchema);
 
 
 const messageSchema = new mongoose.Schema({
@@ -122,8 +120,6 @@ const messageSchema = new mongoose.Schema({
     }
 });
 
-const Message = mongoose.model('Message', messageSchema);
-
 
 const activityFeedSchema = new mongoose.Schema({
     title: {
@@ -141,4 +137,9 @@ const activityFeedSchema = new mongoose.Schema({
     }
 });
 
-const ActivityFeed = mongoose.model('ActivityFeed', activityFeedSchema);
+
+export const User = mongoose.model('User', userSchema);
+export const Course = mongoose.model('Course', courseSchema);
+export const Enrollment = mongoose.model('Enrollment', enrollmentSchema);
+export const Message = mongoose.model('Message', messageSchema);
+export const ActivityFeed = mongoose.model('ActivityFeed', activityFeedSchema);
