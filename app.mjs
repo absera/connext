@@ -1,4 +1,4 @@
-import './config.mjs'
+import './src/config.mjs'
 import express from 'express'
 import session from 'express-session';
 import path from 'path'
