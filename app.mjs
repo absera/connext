@@ -30,6 +30,20 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
+// AUTH MIDDLEWARES
+const authRequiredPaths = ['/', '/courses']
+app.use((req, res, next) => {
+    if (authRequiredPaths.includes(req.path)) {
+        if (!req.session.user) {
+            res.redirect('/login');
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
+
 // ROUTE MIDDLEWARES
 app.use(authRouter);          // Routes for authentication (register, login)
 app.use(coursesRouter);       // Routes for course-related operations
