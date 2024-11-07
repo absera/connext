@@ -1,28 +1,68 @@
 <main class="flex justify-center items-center min-h-screen bg-gray-50">
     <div class="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg">
 
-        <h1 class="text-3xl font-semibold text-center text-indigo-600 mb-6">All Courses</h1>
+        <div class="mb-6 flex items-center justify-center space-x-4">
+            <!-- Course Heading -->
+            <h1 class="text-3xl font-semibold text-indigo-600">Explore Courses</h1>
 
-        <div class="mb-6 text-center">
+            <!-- Add Course Button -->
             <a href="/courses/add"
-                class="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">Add
-                Course</a>
+                class="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                + New Course
+            </a>
         </div>
 
+        <!-- Error Message Notification -->
+        {{#if message}}
+        <div class="p-4 mb-6 text-center text-red-700 bg-red-50 border border-red-300 rounded-md">
+            <h2 class="text-lg font-semibold">{{message}}</h2>
+        </div>
+        {{/if}}
+        <!-- Search Section -->
+        <div class="mb-4 flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-2">
+            <!-- Centered Search Bar and Button -->
+            <form action="/courses" method="post" class="flex w-full md:w-2/3 mx-auto">
+                {{#if search_term}}
+                <input type="text" name="search_term" value="{{search_term}}"
+                    class="flex-grow p-2 border border-gray-300 rounded-l-md focus:ring-1 focus:ring-indigo-500 focus:outline-none" />
+                {{else}}
+                <input type="text" name="search_term" placeholder="Search by course name, code, or instructor"
+                    class="flex-grow p-2 border border-gray-300 rounded-l-md focus:ring-1 focus:ring-indigo-500 focus:outline-none" />
+                {{/if}}
+
+                <button type="submit"
+                    class="p-2 bg-indigo-600 text-white rounded-r-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    Search
+                </button>
+            </form>
+        </div>
+
+        <!-- Course List -->
         {{#if allCourses.length}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {{#each allCourses}}
-            <a href="/courses/{{courseNumber}}"
-                class="block p-6 bg-gray-100 rounded-lg shadow-md hover:bg-indigo-50 hover:shadow-xl transition duration-300">
-                <div class="font-semibold text-indigo-600">Course Number: <span
-                        class="text-gray-800">{{courseNumber}}</span></div>
-                <div class="font-semibold text-indigo-600 mt-2">Semester: <span
-                        class="text-gray-800">{{semester}}</span></div>
-                <div class="font-semibold text-indigo-600 mt-2">Course Name: <span
-                        class="text-gray-800">{{courseName}}</span></div>
+            <a href="/course/{{_id}}"
+                class="block p-5 bg-gray-100 rounded-lg shadow hover:bg-indigo-50 hover:shadow-lg transition duration-300">
+
+                <!-- Course Number (Prominent) -->
+                <div class="text-lg font-bold text-indigo-700">
+                    {{courseNumber}}
+                </div>
+
+                <!-- Course Name (Larger and Bolder) -->
+                <div class="mt-1 text-xl font-semibold text-gray-900">
+                    {{courseName}}
+                </div>
+
+                <!-- Semester (Subtle) -->
+                <div class="mt-2 text-sm text-gray-500">
+                    {{semester}}
+                </div>
             </a>
             {{/each}}
         </div>
+
+
         {{else}}
         <p class="text-center text-gray-500 mt-6">No courses available.</p>
         {{/if}}

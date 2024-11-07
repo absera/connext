@@ -13,11 +13,21 @@
         <h1 class="text-2xl font-semibold">Connext</h1>
 
         <nav class="space-x-6">
+
+            {{#if user}}
             <a href="/" class="text-white hover:text-indigo-200 transition duration-300">Feed</a>
-            <a href="/network" class="text-white hover:text-indigo-200 transition duration-300">My Network</a>
+            <a href="/network/{{user.netid}}" class="text-white hover:text-indigo-200 transition duration-300">My
+                Network</a>
             <a href="/courses" class="text-white hover:text-indigo-200 transition duration-300">Explore Courses</a>
             <a href="/chat" class="text-white hover:text-indigo-200 transition duration-300">Messages</a>
+            <a href="/user/{{user.netid}}"
+                class="py-2 px-4 rounded-md bg-indigo-700 text-white hover:text-indigo-200 transition duration-300">{{user.netid}}</a>
+            {{else}}
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+            {{/if}}
         </nav>
+
     </header>
 
     {{{ body }}}

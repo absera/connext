@@ -1,0 +1,30 @@
+<main class="flex justify-center items-center min-h-screen bg-gray-50">
+    <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+        
+        <!-- Course Name -->
+        <h1 class="text-3xl font-semibold text-center text-indigo-600 mb-4">
+            {{singleCourse.courseName}}
+        </h1>
+        
+        <!-- Course Details -->
+        <div class="space-y-4 text-gray-700 text-lg">
+            <div>
+                <span class="font-semibold text-indigo-500">Course Number:</span> {{singleCourse.courseNumber}}
+            </div>
+            <div>
+                <span class="font-semibold text-indigo-500">Semester:</span> {{singleCourse.semester}}
+            </div>
+            <div>
+                <span class="font-semibold text-indigo-500">Created by:</span> {{singleCourse.creatorId.netid}}
+            </div>
+        </div>
+        
+        <!-- Join Class Button -->
+        <div class="mt-8 text-center">
+            <button onclick="joinClass('{{singleCourse._id}}')" 
+                    class="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Join Class
+            </button>
+        </div>
+    </div>
+</main>
