@@ -1,4 +1,4 @@
-import * as db from '../db.mjs';
+import * as db from '../config/db.mjs';
 
 export async function addCourse(courseData) {
     const newCourse = new db.Course(courseData);

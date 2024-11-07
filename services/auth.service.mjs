@@ -1,4 +1,4 @@
-import * as db from '../db.mjs';
+import * as db from '../config/db.mjs';
 import bcrypt from 'bcryptjs';
 
 const startAuthenticatedSession = (req, user) => {
