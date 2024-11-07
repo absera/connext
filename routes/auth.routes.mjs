@@ -21,8 +21,11 @@ authRouter.post('/register', async (req, res) => {
         await auth.startAuthenticatedSession(req, newUser);
         res.redirect('/')
     } catch (error) {
-        console.log("REGISTERATION FAILED!", error)
-        res.render('register')
+        if (error.message == 'USERNAME ALREADY EXISTS') {
+            res.render('register', { message: 'Failed: NetID already registered' })
+        } else {
+            res.render('register', { message: "Registration Failed!" })
+        }
     }
 });
 
@@ -39,10 +42,20 @@ authRouter.post('/login', async (req, res) => {
         await auth.startAuthenticatedSession(req, user);
         res.redirect('/')
     } catch (error) {
-        console.log("LOGIN FAILED!", error)
-        res.render('login')
+        if (error.message == 'USER NOT FOUND') {
+            res.render('login', { message: "Login Failed: NetID not Registered" })
+        } else if (error.message == 'PASSWORDS DO NOT MATCH') {
+            res.render('login', { message: 'Login Failed: Incorrect Password' })
+        } else {
+            res.render('login', { message: "Login Failed!" })
+        }
     }
 
+});
+
+authRouter.get('/logout', (req, res) => {
+    auth.endAuthenticatedSession(req);
+    res.redirect('login')
 });
 
 export default authRouter;
