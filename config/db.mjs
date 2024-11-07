@@ -52,14 +52,10 @@ const userSchema = new mongoose.Schema({
 
 
 const courseSchema = new mongoose.Schema({
-    // TODO below is commented for test purposes, uncomment and remove line below is
-    // creatorId: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     required: true
-    // },
     creatorId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
     courseNumber: {
         type: String,
