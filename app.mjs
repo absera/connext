@@ -3,6 +3,7 @@ import express from 'express'
 import session from 'express-session';
 import path from 'path'
 import { fileURLToPath } from 'url';
+import MongoStore from 'connect-mongo' // for persistent session storage
 
 // ROUTES
 import authRouter from './routes/auth.routes.mjs';
@@ -18,11 +19,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-// SESSION: TODO: use persistent session storage
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.DSN,
+        collectionName: 'sessions',
+        ttl: 14 * 24 * 60 * 60, // 14 days
+    }),
 }));
 
 // ENGINE MIDDLEWARES
@@ -31,9 +36,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
 // AUTH MIDDLEWARES
-const authRequiredPaths = ['/', '/courses']
+const publicPaths = ['/login', '/register']
 app.use((req, res, next) => {
-    if (authRequiredPaths.includes(req.path)) {
+    if (!publicPaths.includes(req.path)) {
         if (!req.session.user) {
             res.redirect('/login');
         } else {
