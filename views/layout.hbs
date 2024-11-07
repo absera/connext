@@ -8,12 +8,17 @@
     <title>Connext</title>
 </head>
 
-<body>
-    <h1>Connext</h1>
-    <a href="/">Feed</a>
-    <a href="/network">My Network</a>
-    <a href="/courses">Explore Courses</a>
-    <a href="/chat">Messages</a>
+<body class="bg-gray-50">
+    <header class="flex justify-between items-center p-4 bg-indigo-600 text-white shadow-md">
+        <h1 class="text-2xl font-semibold">Connext</h1>
+
+        <nav class="space-x-6">
+            <a href="/" class="text-white hover:text-indigo-200 transition duration-300">Feed</a>
+            <a href="/network" class="text-white hover:text-indigo-200 transition duration-300">My Network</a>
+            <a href="/courses" class="text-white hover:text-indigo-200 transition duration-300">Explore Courses</a>
+            <a href="/chat" class="text-white hover:text-indigo-200 transition duration-300">Messages</a>
+        </nav>
+    </header>
 
     {{{ body }}}
 </body>
