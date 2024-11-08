@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as courseService from '../services/course.service.mjs';
+import * as enrollmentService from '../services/enrollment.service.mjs';
 
 const coursesRouter = Router();
 
@@ -48,8 +49,25 @@ coursesRouter.post('/courses/add', async (req, res) => {
     }
 });
 
-coursesRouter.post('/courses/join/:course_number', (req, res) => {
-    res.redirect('/courses')
+coursesRouter.post('/courses/join/:course_id', async (req, res) => {
+    const userId = req.session.user._id;
+    try {
+        const enrolled = await enrollmentService.enroll(req.params.course_id, userId)
+    } catch (error) {
+        console.log("already enrolled")
+    }
+    res.redirect('/users/' + req.session.user.netid)
 });
+
+coursesRouter.get('/courses/leave/:course_id', async (req, res) => {
+    const userId = req.session.user._id;
+    try {
+        const enrolled = await enrollmentService.unenroll(req.params.course_id, userId)
+    } catch (error) {
+        console.log("couldn't unenrolled")
+    }
+    res.redirect('/users/' + req.session.user.netid)
+});
+
 
 export default coursesRouter;
