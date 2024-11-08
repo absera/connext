@@ -12,23 +12,47 @@
     </div>
 
     <!-- Courses Section -->
-    <div class="mt-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Enrolled Courses</h2>
-        {{#if courses}}
-        <ul class="space-y-4">
-            {{#each courses}}
-            <li class="bg-gray-50 p-4 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-indigo-600">{{courseName}} ({{semester}})</h3>
-                <p class="text-gray-600">Course Number: {{courseNumber}}</p>
-                <a href="/courses/leave/{{_id}}"
-                    class="text-indigo-600 bg-gray-100 px-3 py-1 rounded hover:bg-indigo-600 hover:text-white transition-colors">
-                    Leave Course
-                </a>
-            </li>
-            {{/each}}
-        </ul>
-        {{else}}
-        <p class="text-gray-500">You are not enrolled in any courses yet.</p>
-        {{/if}}
+    <div class="mt-8 flex space-x-8">
+        <!-- Enrolled Courses -->
+        <div class="flex-1">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Enrolled Courses</h2>
+            {{#if courses}}
+            <ul class="space-y-4">
+                {{#each courses}}
+                <li class="bg-gray-50 p-4 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-indigo-600">{{courseName}} ({{semester}})</h3>
+                    <p class="text-gray-600">Course Number: {{courseNumber}}</p>
+                    <a href="/courses/leave/{{_id}}"
+                        class="text-indigo-600 bg-gray-100 px-3 py-1 rounded hover:bg-indigo-600 hover:text-white transition-colors">
+                        Leave Course
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p class="text-gray-500">You are not enrolled in any courses yet.</p>
+            {{/if}}
+        </div>
+
+        <!-- Contributed Courses -->
+        <div class="flex-1">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Courses Contributed</h2>
+            {{#if courses_contributed}}
+            <ul class="space-y-4">
+                {{#each courses_contributed}}
+                <li class="bg-gray-50 p-4 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-indigo-600">{{courseName}} ({{semester}})</h3>
+                    <p class="text-gray-600">Course Number: {{courseNumber}}</p>
+                    <a href="/courses/delete/{{_id}}"
+                        class="text-indigo-600 bg-gray-100 px-3 py-1 rounded hover:bg-indigo-600 hover:text-white transition-colors">
+                        Delete Course
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p class="text-gray-500">You have not created any courses yet.</p>
+            {{/if}}
+        </div>
     </div>
 </main>
