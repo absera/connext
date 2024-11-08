@@ -75,22 +75,20 @@ const courseSchema = new mongoose.Schema({
 
 
 const enrollmentSchema = new mongoose.Schema({
-    courseNumber: {
-        type: String,
+    course: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Course',
         required: true
     },
-    semester: {
-        type: String,
-        required: true
-    },
-    userId: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     }
 });
 
-enrollmentSchema.index({ courseNumber: 1, semester: 1, userId: 1 }, { unique: true });
+
+enrollmentSchema.index({ course: 1, user: 1 }, { unique: true });
 
 
 const messageSchema = new mongoose.Schema({
