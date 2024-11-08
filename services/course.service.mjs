@@ -15,6 +15,13 @@ export async function getSingleCourse(course_id) {
     return course;
 }
 
+export async function deleteCourse(course_id) {
+    // also delete all enrollemnets records connected to course_id
+    await db.Enrollment.deleteMany({ course: course_id });
+    const course = await db.Course.deleteOne({ _id: course_id });
+    return course;
+}
+
 export async function getSearched(search_term) {
     const matchedCourses = await db.Course.find({
         $or: [
@@ -22,6 +29,14 @@ export async function getSearched(search_term) {
             { courseName: { $regex: search_term, $options: 'i' } },
             { semester: { $regex: search_term, $options: 'i' } }
         ]
+    });
+    return matchedCourses;
+}
+
+export async function getContributedBy(user_net_id) {
+    const user = await db.User.findOne({ netid: user_net_id });
+    const matchedCourses = await db.Course.find({
+        creatorId: user._id
     });
     return matchedCourses;
 }
