@@ -1,31 +1,18 @@
 import * as db from '../config/db.mjs';
 
 export async function addCourse(courseData) {
-    try {
-        const newCourse = new db.Course(courseData);
-        return await newCourse.save();
-    }
-    catch {
-        throw { message: "Some error occured while adding a course!" }
-    }
+    const newCourse = new db.Course(courseData);
+    return await newCourse.save();
 }
 
 export async function getAllCourses() {
-    try {
-        const courses = await db.Course.find({});
-        return courses;
-    } catch (error) {
-        throw { message: "Error retrieving all courses" };
-    }
+    const courses = await db.Course.find({});
+    return courses;
 }
 
 export async function getSingleCourse(course_id) {
-    try {
-        const course = await db.Course.findOne({ _id: course_id }).populate('creatorId');
-        return course;
-    } catch (error) {
-        throw { message: "Error while retrieving course" }
-    }
+    const course = await db.Course.findOne({ _id: course_id });
+    return course;
 }
 
 export async function getSearched(search_term) {
