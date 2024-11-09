@@ -25,8 +25,7 @@ http://linserv1.cims.nyu.edu:12134/courses
 URL to github that shows line of code where research topic(s) are used / implemented
 --- 
 https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/751648cfaca367b28fd05698636f0cb8fd6a8b8b/public/d3vis.mjs#L9C9-L83C12<br>
-https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/751648cfaca367b28fd05698636f0cb8fd6a8b8b/views/layout.hbs#L12C20-L12C92
-
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/751648cfaca367b28fd05698636f0cb8fd6a8b8b/views/layout.hbs#L11C1-L42C1
 
 References 
 ---
