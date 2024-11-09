@@ -54,7 +54,7 @@ coursesRouter.get('/courses/delete/:course_id', async (req, res) => {
     try {
         await courseService.deleteCourse(req.params.course_id);
     } catch (error) {
-        console.log("error occured while deleting a course")
+        console.log("error occured while deleting a course", error)
     }
     res.redirect('/users/' + req.session.user.netid);
 
@@ -65,7 +65,7 @@ coursesRouter.get('/courses/join/:course_id', async (req, res) => {
     try {
         const enrolled = await enrollmentService.enroll(req.params.course_id, userId)
     } catch (error) {
-        console.log("already enrolled")
+        console.log("couldn't enrolled", error)
     }
     res.redirect('/users/' + req.session.user.netid)
 });
@@ -75,7 +75,7 @@ coursesRouter.get('/courses/leave/:course_id', async (req, res) => {
     try {
         const enrolled = await enrollmentService.unenroll(req.params.course_id, userId)
     } catch (error) {
-        console.log("couldn't unenrolled")
+        console.log("couldn't unenrolled", error)
     }
     res.redirect('/users/' + req.session.user.netid)
 });
