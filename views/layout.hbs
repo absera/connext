@@ -42,16 +42,13 @@
 
     </header>
     <script>
-        // Dynamically set the user netid
         const userDropdownButton = document.getElementById('userDropdown');
         const dropdownMenu = document.getElementById('dropdownMenu');
 
-        // Toggle the dropdown menu on button click
         userDropdownButton.addEventListener('click', function () {
             dropdownMenu.classList.toggle('hidden');
         });
 
-        // Hide dropdown if clicked outside (optional)
         window.addEventListener('click', function (event) {
             if (!userDropdownButton.contains(event.target)) {
                 dropdownMenu.classList.add('hidden');
