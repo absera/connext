@@ -1,0 +1,102 @@
+[
+    {
+        "netid": "abc123",
+        "firstName": "Alice",
+        "lastName": "Johnson",
+        "email": "alice.johnson@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2025,
+        "karma": 10,
+        "courses": []
+    },
+    {
+        "netid": "def456",
+        "firstName": "Bob",
+        "lastName": "Smith",
+        "email": "bob.smith@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2024,
+        "karma": 5,
+        "courses": []
+    },
+    {
+        "netid": "ghi789",
+        "firstName": "Clara",
+        "lastName": "Adams",
+        "email": "clara.adams@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2026,
+        "karma": 15,
+        "courses": []
+    },
+    {
+        "netid": "jkl012",
+        "firstName": "Daniel",
+        "lastName": "Lee",
+        "email": "daniel.lee@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2023,
+        "karma": 8,
+        "courses": []
+    },
+    {
+        "netid": "mno345",
+        "firstName": "Emma",
+        "lastName": "Brown",
+        "email": "emma.brown@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2025,
+        "karma": 20,
+        "courses": []
+    },
+    {
+        "netid": "pqr678",
+        "firstName": "Frank",
+        "lastName": "Garcia",
+        "email": "frank.garcia@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2024,
+        "karma": 12,
+        "courses": []
+    },
+    {
+        "netid": "stu901",
+        "firstName": "Grace",
+        "lastName": "Miller",
+        "email": "grace.miller@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2026,
+        "karma": 25,
+        "courses": []
+    },
+    {
+        "netid": "vwx234",
+        "firstName": "Hannah",
+        "lastName": "Wilson",
+        "email": "hannah.wilson@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2025,
+        "karma": 18,
+        "courses": []
+    },
+    {
+        "netid": "yz1234",
+        "firstName": "Ian",
+        "lastName": "Taylor",
+        "email": "ian.taylor@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2023,
+        "karma": 7,
+        "courses": []
+    },
+    {
+        "netid": "abc567",
+        "firstName": "Jane",
+        "lastName": "White",
+        "email": "jane.white@nyu.edu",
+        "password": "$2a$10$FQ7YBMmTmJlfJgNRbXq9uONNRKrPGliOIkQIStKGhHyerkgkeu9WG",
+        "classYear": 2024,
+        "karma": 10,
+        "courses": []
+    }
+]

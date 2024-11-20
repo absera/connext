@@ -1,0 +1,108 @@
+[
+    {
+      
+      "creatorId": { "$oid": "673da288a54b145f4ee37c5a" },
+      "courseNumber": "CSCI-UA 101",
+      "semester": "Fall 2024",
+      "courseName": "Introduction to Computer Science"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510ef" },
+      "courseNumber": "CSCI-UA 102",
+      "semester": "Spring 2025",
+      "courseName": "Data Structures and Algorithms"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f0" },
+      "courseNumber": "CSCI-UA 201",
+      "semester": "Fall 2024",
+      "courseName": "Operating Systems"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f1" },
+      "courseNumber": "CSCI-UA 202",
+      "semester": "Spring 2025",
+      "courseName": "Database Systems"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f2" },
+      "courseNumber": "MATH-UA 121",
+      "semester": "Fall 2024",
+      "courseName": "Calculus I"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f3" },
+      "courseNumber": "MATH-UA 122",
+      "semester": "Spring 2025",
+      "courseName": "Calculus II"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f4" },
+      "courseNumber": "CSCI-UA 302",
+      "semester": "Fall 2024",
+      "courseName": "Machine Learning"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f5" },
+      "courseNumber": "CSCI-UA 303",
+      "semester": "Spring 2025",
+      "courseName": "Artificial Intelligence"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f6" },
+      "courseNumber": "PHYS-UA 101",
+      "semester": "Fall 2024",
+      "courseName": "Physics I"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f7" },
+      "courseNumber": "PHYS-UA 102",
+      "semester": "Spring 2025",
+      "courseName": "Physics II"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f8" },
+      "courseNumber": "ECON-UA 101",
+      "semester": "Fall 2024",
+      "courseName": "Principles of Microeconomics"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510ef" },
+      "courseNumber": "ECON-UA 102",
+      "semester": "Spring 2025",
+      "courseName": "Principles of Macroeconomics"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f0" },
+      "courseNumber": "CSCI-UA 304",
+      "semester": "Fall 2024",
+      "courseName": "Computer Networks"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f1" },
+      "courseNumber": "CSCI-UA 305",
+      "semester": "Spring 2025",
+      "courseName": "Computer Graphics"
+    },
+    {
+      
+      "creatorId": { "$oid": "673da4444e8d157dc90510f2" },
+      "courseNumber": "CSCI-UA 306",
+      "semester": "Fall 2024",
+      "courseName": "Human-Computer Interaction"
+    }
+  ]
+  

@@ -1,9 +1,13 @@
-<div class="bg-white-500 text-grey p-6">
-  <h1 class="text-4xl">Welcome!</h1>
-  <p>Under construction! Check working pages below</p><br>
-  <a href="/courses/add">Add New Course</a><br>
-  <a href="/courses">Explore Courses</a><br>
-  <a href="/network/user/{{user.netid}}">Your Network</a><br>
-  <a href="/users/{{user.netid}}">Your profile</a><br>
-  <a href="/logout">Logout</a><br>
-</div>
+<a href="/network/user/{{user.netid}}">state new conversations</a>
+
+{{#if chat_list.length}}
+<br>
+{{#each chat_list}}
+<a href="/chat/{{netid}}">{{firstName}}
+  {{lastName}}</a>
+<br>
+{{/each}}
+
+{{else}}
+No communications yet
+{{/if}}

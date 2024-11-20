@@ -1,0 +1,17 @@
+{{#if messages.length}}
+{{to}}
+<br>
+{{#each messages}}
+{{value}}
+{{timeSent}}
+<br>
+{{/each}}
+
+{{else}}
+No chats yet
+{{/if}}
+
+<form action="/chat/{{to}}" method="post">
+    <input type="text" name="message" id="">
+    <input type="submit" value="Send">
+</form>
