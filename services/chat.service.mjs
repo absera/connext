@@ -41,20 +41,27 @@ export async function getMessages(from_id, to_netid) {
         ]
     }).populate('receiverId').populate('senderId').sort({ timeSent: 1 });
 
-    return chatList.map(message => {
-        message.timeSent = formatDate(message.timeSent)
-        return message
+    const updatedChatList = chatList.map(message => {
+        const msgObject = message.toObject();
+        msgObject.timeSent = formatDate(msgObject.timeSent);
+        return msgObject;
     });
+
+    return updatedChatList;
 }
 const formatDate = (dateString) => {
+    // Create a Date object
     const date = new Date(dateString);
 
-    return new Intl.DateTimeFormat('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: true
-    }).format(date);
+    // Format the date
+    const options = {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true // Ensures 12-hour format
+    };
+    return date.toLocaleString("en-US", options).replace(", ", ", ");
 };
