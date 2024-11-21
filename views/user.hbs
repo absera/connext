@@ -1,14 +1,17 @@
 <main class="max-w-7xl mx-auto py-8 px-6">
     <div class="bg-white shadow-md rounded-lg p-8">
-        <div class="flex items-center space-x-6">
-            <div>
-                <h1 class="text-3xl font-semibold text-indigo-600">{{user.firstName}} {{user.lastName}}</h1>
-                <p class="text-xl text-gray-600">{{user.netid}}</p>
-                <p class="text-lg text-gray-500">{{user.email}}</p>
-                <p class="text-lg text-gray-500">Class Year: {{user.classYear}}</p>
-                <p class="mt-2 text-lg font-medium text-gray-800">Karma: {{user.karma}}</p>
-            </div>
-        </div>
+                <div class="flex items-center justify-between space-x-6">
+<h1 class="text-3xl font-semibold text-indigo-600">{{profiledUser.firstName}} {{profiledUser.lastName}}
+                </h1> <a href="/chat/{{profiledUser.netid}}"
+                class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700">
+                Send Message
+            </a>
+                </div>
+                
+                <p class="text-xl text-gray-600">{{profiledUser.netid}}</p>
+                <p class="text-lg text-gray-500">{{profiledUser.email}}</p>
+                <p class="text-lg text-gray-500">Class Year: {{profiledUser.classYear}}</p>
+                <p class="mt-2 text-lg font-medium text-gray-800">Karma: {{profiledUser.karma}}</p>           
     </div>
 
     <!-- Courses Section -->
