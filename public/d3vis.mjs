@@ -50,7 +50,11 @@ fetch('/network/data')
             .attr('r', d => d.group === 'central_user' ? 40 : 35)
             .attr('fill', d => d.group === 'central_user' ? 'rgb(79 70 229 / var(--tw-bg-opacity))' : '#7F8C8D')
             .attr('stroke', '#fff')
-            .attr('stroke-width', 2);
+            .attr('stroke-width', 2)
+            .each(function (d, i) {
+                d.index = i;
+                d3.select(this).attr('data-user-netid', nodes[i].id);
+            });
 
         const label = svg.selectAll('.label')
             .data(nodes)
@@ -63,7 +67,33 @@ fetch('/network/data')
             .attr('dominant-baseline', 'middle')
             .attr('font-size', 12) // TODO adjust size based on node radius?
             .attr('fill', '#fff')
-            .text(d => d.user ? d.user.firstName + ' x' + d.count : d.id);
+            .text(d => d.user ? d.user.firstName + ' x' + d.count : d.id)
+            .each(function (d, i) {
+                d.index = i;
+                d3.select(this).attr('data-user-netid', nodes[i].id);
+            });
+
+        node.on('click', (evt) => {
+            let netid = evt.target.getAttribute('data-user-netid');
+            if (netid == 'You') {
+                netid = ''
+            }
+            window.location.href = `/users/${netid}`
+        })
+
+        label.on('click', (evt) => {
+            let netid = evt.target.getAttribute('data-user-netid');
+            if (netid == 'You') {
+                netid = ''
+            }
+            window.location.href = `/users/${netid}`
+        })
+        node.on('mouseover', (evt) => {
+            evt.target.style.cursor = 'pointer';
+        })
+        label.on('mouseover', (evt) => {
+            evt.target.style.cursor = 'pointer';
+        })
 
         // some simulation stuff
         simulation.on('tick', () => {
