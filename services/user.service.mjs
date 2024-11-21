@@ -13,3 +13,12 @@ export async function getEnrolledCourses(net_id) {
         return elem.course
     })
 }
+
+
+export async function getByNetid(net_id){
+    const userObj = await db.User.findOne({
+        netid: net_id
+    });
+
+    return userObj;
+}
