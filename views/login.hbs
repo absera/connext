@@ -1,41 +1,55 @@
-<main class="flex justify-center pt-[10%] bg-gray-50">
-  <div class="w-full max-w-lg p-8 bg-white rounded-lg shadow-lg">
-    <h1 class="text-3xl font-semibold text-center text-indigo-600 mb-6">Login to Connext</h1>
-    <!-- Error Message Notification -->
-    {{#if message}}
-    <div class="p-4 mb-6 text-center text-red-700 bg-red-50 border border-red-300 rounded-md">
-      <h2 class="text-lg font-semibold">{{message}}</h2>
+<main class="flex justify-center items-center min-h-screen bg-gray-100 py-12">
+  <div class="flex w-full max-w-4xl bg-white rounded-lg shadow-lg">
+
+    <!-- Left Section: Description -->
+    <div class="w-1/2 p-8">
+      <h2 class="text-3xl font-semibold text-indigo-600 mb-4">Welcome to Connext</h2>
+      <p class="text-md text-gray-600 mb-6">
+        Did you know you’re probably sharing more classes with people than you think? Add your courses to Connext, see
+        your class network, and message that one person you didn’t realize you’re in 3 classes with. It’s like finding
+        secret study buddies!
+      </p>
     </div>
-    {{/if}}
 
-    <form action="/login" method="post" class="space-y-6">
-
-      <!-- Net ID -->
-      <div>
-        <label for="net-id" class="block text-gray-700">Net ID*</label>
-        <input type="text" id="net-id" name="net_id" required
-          class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+    <!-- Right Section: Login Form -->
+    <div class="w-1/2 p-8 border-l border-gray-200">
+      <h1 class="text-3xl font-semibold text-center text-indigo-600 mb-6">Login</h1>
+      <!-- Error Message Notification -->
+      {{#if message}}
+      <div class="p-4 mb-6 text-center text-red-700 bg-red-50 border border-red-300 rounded-md">
+        <h2 class="text-lg font-semibold">{{message}}</h2>
       </div>
+      {{/if}}
 
-      <!-- Password -->
-      <div>
-        <label for="password" class="block text-gray-700">Password*</label>
-        <input type="password" id="password" name="password" required minlength="8"
-          class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-        <small class="text-gray-500">Must be at least 8 characters</small>
+      <form action="/login" method="post" class="space-y-6">
+
+        <!-- Net ID -->
+        <div>
+          <label for="net-id" class="block text-gray-700">Net ID*</label>
+          <input type="text" id="net-id" name="net_id" required
+            class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label for="password" class="block text-gray-700">Password*</label>
+          <input type="password" id="password" name="password" required minlength="8"
+            class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <small class="text-gray-500">Must be at least 8 characters</small>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center">
+          <button type="submit"
+            class="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">Login</button>
+        </div>
+      </form>
+
+      <!-- Register Redirect -->
+      <div class="mt-6 text-center">
+        <p class="text-gray-700">Don't have an account? <a href="/register"
+            class="text-indigo-600 hover:text-indigo-700">Register here</a></p>
       </div>
-
-      <!-- Submit Button -->
-      <div class="flex justify-center">
-        <button type="submit"
-          class="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">Login</button>
-      </div>
-    </form>
-
-    <!-- Register Redirect -->
-    <div class="mt-6 text-center">
-      <p class="text-gray-700">Don't have an account? <a href="/register"
-          class="text-indigo-600 hover:text-indigo-700">Register here</a></p>
     </div>
   </div>
 </main>

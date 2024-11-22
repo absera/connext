@@ -127,6 +127,12 @@ An Example Activity Feed:
 * (2 points) Use a client-side JavaScript library
     * i'll use d3 to display graphs and networks
 
+## Research Topics (Updated)
+* (5pt) D3.js: 
+* (2pts) CSS Framework (Tailwind.CSS): 
+* (2pts) Authentication:
+* (1pt) Build tools (CSS Preprocessor): 
+
 ## [Link to Initial Main Project File](app.mjs) 
 
 ## Annotations / References Used

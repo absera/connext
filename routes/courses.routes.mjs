@@ -80,7 +80,6 @@ coursesRouter.get('/courses/delete/:course_id', async (req, res) => {
         console.log("error occured while deleting a course", error)
     }
     res.redirect('/users/' + req.session.user.netid);
-
 });
 
 coursesRouter.get('/courses/join/:course_id', async (req, res) => {
@@ -102,6 +101,5 @@ coursesRouter.get('/courses/leave/:course_id', async (req, res) => {
     }
     res.redirect('/users/' + req.session.user.netid)
 });
-
 
 export default coursesRouter;
