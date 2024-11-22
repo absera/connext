@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as courseService from '../services/course.service.mjs';
+import * as userServices from '../services/user.service.mjs';
 import * as enrollmentService from '../services/enrollment.service.mjs';
 
 const coursesRouter = Router();
@@ -8,7 +9,18 @@ const coursesRouter = Router();
 coursesRouter.get('/courses', async (req, res) => {
     try {
         const allCourses = await courseService.getAllCourses();
-        res.render('courses', { allCourses: allCourses, user: req.session.user })
+        const currentUserCourses = await userServices.getEnrolledCourses(req.session.user.netid)
+
+        const allCoursesFiltered = allCourses.map(course => {
+            let c = course.toObject();
+            if (currentUserCourses.map(course => course._id.toString()).includes(c._id.toString())) {
+                c.current = true
+            } else {
+                c.current = false
+            }
+            return c
+        })
+        res.render('courses', { allCourses: allCoursesFiltered, user: req.session.user })
     } catch (error) {
         res.render('courses', { message: "Failed to load courses!" })
     }
@@ -17,7 +29,18 @@ coursesRouter.get('/courses', async (req, res) => {
 coursesRouter.post('/courses', async (req, res) => {
     try {
         const matchedCourses = await courseService.getSearched(req.body.search_term);
-        res.render('courses', { allCourses: matchedCourses, user: req.session.user, search_term: req.body.search_term })
+        const currentUserCourses = await userServices.getEnrolledCourses(req.session.user.netid)
+
+        const allCoursesFiltered = matchedCourses.map(course => {
+            let c = course.toObject();
+            if (currentUserCourses.map(course => course._id.toString()).includes(c._id.toString())) {
+                c.current = true
+            } else {
+                c.current = false
+            }
+            return c
+        })
+        res.render('courses', { allCourses: allCoursesFiltered, user: req.session.user, search_term: req.body.search_term })
     } catch {
         res.render('courses', { message: "Failed while retrieving courses" })
     }
@@ -67,7 +90,7 @@ coursesRouter.get('/courses/join/:course_id', async (req, res) => {
     } catch (error) {
         console.log("couldn't enrolled", error)
     }
-    res.redirect('/users/' + req.session.user.netid)
+    res.redirect('/courses')
 });
 
 coursesRouter.get('/courses/leave/:course_id', async (req, res) => {
