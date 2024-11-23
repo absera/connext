@@ -19,7 +19,7 @@ Special Instructions for Form 1
 
 URL for form 2 (for current milestone)
 ---
-http://linserv1.cims.nyu.edu:12134/chat/> <br>
+http://linserv1.cims.nyu.edu:12134/chat/ <br>
 http://linserv1.cims.nyu.edu:12134/register
 
 Special Instructions for Form 2
