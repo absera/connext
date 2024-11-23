@@ -30,10 +30,10 @@ Form 2.2: To register, use your netid email<br>
 
 URL(s) to github repository with commits that show progress on research
 --- 
-(5pt) D3.js: <br>
-(2pts) CSS Framework (Tailwind.CSS):  <br>
-(2pts) Authentication: <br>
-(1pt) Build tools (CSS Preprocessor):  <br>
+[(5pt) D3.js:](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/public/d3vis.mjs) <br>
+[(2pts) CSS Framework (Tailwind.CSS):](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/public/dist/styles.css) <br>
+[(2pts) Authentication:](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/routes/auth.routes.mjs) <br>
+[(1pt) Build tools (CSS Preprocessor):](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/package.json#L6C1-L11C5) <br>
 
 References 
 ---
