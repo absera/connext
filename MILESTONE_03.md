@@ -19,13 +19,13 @@ Special Instructions for Form 1
 
 URL for form 2 (for current milestone)
 ---
-http://linserv1.cims.nyu.edu:12134/chat/<netid> <br>
+http://linserv1.cims.nyu.edu:12134/chat/> <br>
 http://linserv1.cims.nyu.edu:12134/register
 
 Special Instructions for Form 2
 ---
 Form 2.1: To send message you can either go through the UI on Messages tab or Create a new conversation from a user's profile page
-    or you can put a user's netid in the url itself. <br>
+    or you can put a user's netid after /chat/... in the url itself. <br>
 Form 2.2: To register, use your netid email<br>
 
 URL(s) to github repository with commits that show progress on research
