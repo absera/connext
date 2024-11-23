@@ -3,4 +3,4 @@ node_modules
 *.swp
 notes.txt
 .env
-d3vis-secondary.mjs
+public/d3vis-secondary.mjs
