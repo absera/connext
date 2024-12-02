@@ -115,25 +115,7 @@ const messageSchema = new mongoose.Schema({
 });
 
 
-const activityFeedSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    timeStamp: {
-        type: Date,
-        default: Date.now
-    },
-    type: {
-        type: String,
-        required: true,
-        enum: ['course created', 'new user joined your class']
-    }
-});
-
-
 export const User = mongoose.model('User', userSchema);
 export const Course = mongoose.model('Course', courseSchema);
 export const Enrollment = mongoose.model('Enrollment', enrollmentSchema);
 export const Message = mongoose.model('Message', messageSchema);
-export const ActivityFeed = mongoose.model('ActivityFeed', activityFeedSchema);

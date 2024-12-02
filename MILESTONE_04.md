@@ -70,11 +70,11 @@ Description of research topics above with points
 
 Links to github line number(s) for research topics described above (one link per line)
 ---
-* [(5pt) D3.js:](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/public/d3vis.mjs)
-* [(2pts) CSS Framework (Tailwind.CSS):](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/public/dist/styles.css)
-* [(2pts) Authentication:](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/routes/auth.routes.mjs)
-* [(1pt) Task Runner:](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/package.json#L6C1-L11C5)  |  [image](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/13749b9f404a423ee68770e60e6e24d2afa8e7ac/documentation/connext-build-process.png)
-* [(1pt) Integrate ESLint into your workflow]()
+* [(5pt) D3.js](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/public/d3vis.mjs)
+* [(2pts) CSS Framework (Tailwind.CSS)](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/public/dist/styles.css)
+* [(2pts) Authentication](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/3f16de8a85f280cde8041907866b7e9b02809db7/routes/auth.routes.mjs)
+* [(1pt) Task Runner](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/b60cfae13f4392a5ee57a1656394e47f73028a18/package.json#L6C1-L11C5)  |  [image](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/13749b9f404a423ee68770e60e6e24d2afa8e7ac/documentation/connext-build-process.png)
+* [(1pt) Integrate ESLint into your workflow](https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-absera/blob/b60cfae13f4392a5ee57a1656394e47f73028a18/eslint.config.mjs)
 
 
 Optional project notes 
