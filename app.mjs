@@ -8,7 +8,6 @@ import MongoStore from 'connect-mongo' // for persistent session storage
 // ROUTES
 import authRouter from './routes/auth.routes.mjs';
 import coursesRouter from './routes/courses.routes.mjs';
-import feedRouter from './routes/feed.routes.mjs';
 import networkRouter from './routes/network.routes.mjs';
 import userRouter from './routes/user.routes.mjs';
 import chatRouter from './routes/chat.routes.mjs';
@@ -52,7 +51,6 @@ app.use((req, res, next) => {
 // ROUTE MIDDLEWARES
 app.use(authRouter);          // Routes for authentication (register, login)
 app.use(coursesRouter);       // Routes for course-related operations
-app.use(feedRouter);          // Routes for main feed and homepage
 app.use(networkRouter);       // Routes for viewing user networks
 app.use(userRouter);          // Routes for user profiles
 app.use(chatRouter);          // Routes for chat list and messaging 

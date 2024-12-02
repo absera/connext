@@ -58,4 +58,5 @@ authRouter.get('/logout', (req, res) => {
     res.redirect('login')
 });
 
+
 export default authRouter;
