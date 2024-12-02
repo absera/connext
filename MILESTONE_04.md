@@ -41,7 +41,7 @@ URL for form 3 (from previous milestone)
 Special Instructions for Form 3
 ---
 * To send messages to another student, you can either use the UI by going to the `Messages` navigation menu or you can start a new conversation from a user's profile page.
-    * You can also put a user's netid directly in the url itself. <br>
+    * You can also put a user's netid directly in the url itself. The user with the netid must exist in the database of course.<br>
 
 First link to github line number(s) for constructor, HOF, etc.
 ---
