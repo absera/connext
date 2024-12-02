@@ -1,6 +1,6 @@
 import { mongoose } from 'mongoose'
 import '../src/config.mjs'
-
+/* global process*/
 mongoose.connect(process.env.DSN)
 
 const userSchema = new mongoose.Schema({

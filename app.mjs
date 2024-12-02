@@ -17,7 +17,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
+/* global process*/
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,

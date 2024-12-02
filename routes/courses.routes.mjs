@@ -22,6 +22,7 @@ coursesRouter.get('/courses', async (req, res) => {
         })
         res.render('courses', { allCourses: allCoursesFiltered, user: req.session.user })
     } catch (error) {
+        console.log(error)
         res.render('courses', { message: "Failed to load courses!" })
     }
 });
@@ -69,6 +70,7 @@ coursesRouter.post('/courses/add', async (req, res) => {
         await courseService.addCourse(courseData);
         res.redirect('/courses');
     } catch (error) {
+        console.log(error)
         res.render('add-course', { user: req.session.user, message: 'Error while adding the course!' })
     }
 });
@@ -86,6 +88,7 @@ coursesRouter.get('/courses/join/:course_id', async (req, res) => {
     const userId = req.session.user._id;
     try {
         const enrolled = await enrollmentService.enroll(req.params.course_id, userId)
+        console.log(enrolled)
     } catch (error) {
         console.log("couldn't enrolled", error)
     }
@@ -96,6 +99,7 @@ coursesRouter.get('/courses/leave/:course_id', async (req, res) => {
     const userId = req.session.user._id;
     try {
         const enrolled = await enrollmentService.unenroll(req.params.course_id, userId)
+        console.log(enrolled)
     } catch (error) {
         console.log("couldn't unenrolled", error)
     }
