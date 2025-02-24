@@ -4,3 +4,4 @@ node_modules
 notes.txt
 .env
 d3vis-secondary.mjs
+.DS_Store

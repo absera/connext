@@ -1,37 +1,75 @@
-# Connext
+# Connext - Visualize and Expand Your Academic Network
 
-## Overview
+Connext is a powerful tool designed to help college students uncover hidden connections within their academic environment. By visualizing direct and indirect relationships between classmates, potential study partners, and collaborators, Connext empowers students to build meaningful communities, find study buddies, and team up for projects.
 
-College is full of hidden connections--classmates, potential study partners, and collaborators you may not even know exist. Connext reveals these links, helping students visualize and expand their academic network with purpose.
+## Features
 
-With Connext, students register, add their courses, and instantly see a map of direct and indirect connections in their classes. Students who are taking more classes together will have bold or bright connections in the graph, highlighting their stronger ties. By showcasing these unseen relationships in an interactive graph, Connext empowers students to find study buddies, team up for projects, and build a meaningful community. It’s a unique tool for unlocking the full potential of college connections and fostering collaboration across campus.
+- **Explore Courses**: Discover all available courses and see who's enrolled.
+  ![Explore Courses](/documentation/explore_course.png)
 
+- **The Network**: View an interactive graph of your academic network. Stronger ties (students sharing more classes) are highlighted with bold or bright connections.
+  ![The Network](/documentation/network.png)
 
-## Data Model
+- **My Profile**: Manage your profile, including personal details and enrolled courses.
+  ![My Profile](/documentation/my_profile.png)
 
-The app stores information for Users, Courses, Enrollments, Messages, and Activity Feeds.
+- **Add Course**: Easily add courses to your profile and instantly update your network.
+  ![Add Course](/documentation/add_course.png)
 
-- Users have profiles with names, emails, passwords, class year, karma score, and a list of their enrolled courses.
-- Courses are created by users and contain a course number, name, semester, and a link to the user who created it.
-- Enrollments connect users to courses, with each entry ensuring users are enrolled in a unique course per semester.
-- Messages allow users to chat, with each message showing the sender, receiver, content, and timestamp.
-- Activity Feeds log key events, like new courses or classmates joining, so users stay updated.
+- **Chat List**: Access a list of your ongoing conversations with classmates.
+  ![Chat List](/documentation/chat_list.png)
 
+- **Individual Chat**: Communicate directly with peers for seamless collaboration.
+  ![Individual Chat](/documentation/single_chat.png)
 
-An Example User:
+---
 
-```javascript
-{
-  netid: "jdoe123",
-  firstName: "John",
-  lastName: "Doe",
-  email: "jdoe123@nyu.edu",
-  password: // a hashed password,
-  classYear: 2025,
-  karma: 10,
-  courses: [ // an array of references to Course documents
-    ObjectId("609c1f1b34edbc3d9e2a842f"),
-    ObjectId("609c1f1b34edbc3d9e2a8430")
-  ]
-}
-```
+## How It Works
+
+1. **Register**: Create an account using your university email.
+2. **Add Courses**: Input the courses you're taking this semester.
+3. **Visualize Connections**: Instantly see a map of your academic network.
+4. **Collaborate**: Use the chat feature to connect with classmates and build stronger relationships.
+
+---
+
+## Built With
+
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **Frontend**: Tailwind CSS, Handlebars (HBS)
+- **Visualization**: D3.js
+
+---
+
+## Schema Overview
+
+### User
+- `netid`: Unique identifier for each user.
+- `firstName`, `lastName`: Personal details.
+- `email`: Validated NYU email address.
+- `password`: Secure password storage.
+- `classYear`: Academic year of the student.
+- `karma`: Reputation score (default: 0).
+- `courses`: List of courses the user is enrolled in.
+
+### Course
+- `creatorId`: Reference to the user who created the course entry.
+- `courseNumber`: Unique identifier for the course.
+- `semester`: Semester during which the course is offered.
+- `courseName`: Name of the course.
+
+### Enrollment
+- Tracks which users are enrolled in which courses.
+- Ensures unique combinations of `course` and `user`.
+
+### Message
+- `senderId`, `receiverId`: References to users involved in the conversation.
+- `value`: Content of the message (1–500 characters).
+- `timeSent`: Timestamp of when the message was sent.
+
+---
+
+## Why Connext?
+
+College is full of untapped potential—connections waiting to be discovered. Connext bridges the gap by revealing these hidden links, fostering collaboration, and helping students make the most of their academic journey.
